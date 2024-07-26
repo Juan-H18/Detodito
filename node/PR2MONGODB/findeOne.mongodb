@@ -1,0 +1,3 @@
+use ('PR2_DATABASE');
+
+db.car.find({make : 'Toyota'});

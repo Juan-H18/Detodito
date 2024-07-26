@@ -1,0 +1,3 @@
+use ('PR2_DATABASE');
+
+db.car.deleteOne({"_id": ObjectId("669eba1b52a0a8151aae8631")});

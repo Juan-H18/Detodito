@@ -1,0 +1,6 @@
+use ('PR2_DATABASE');
+
+db.car.update(
+    {make : 'Toyota'},
+    {$set:{color : 'Green', year : 2024}}
+);
