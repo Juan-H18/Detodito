@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 
 const Carousel = ({ slides }) => {
+
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const prevSlide = () => {

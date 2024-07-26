@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-slide {
+    min-width: 100%;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    display: none;
+  }
+  
+  .carousel-slide.active {
+    opacity: 1;
+    display: block;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+  }
+  
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .carousel-button.left {
+    left: 10px;
+  }
+  
+  .carousel-button.right {
+    right: 10px;
+  }
+  .App{
+    text-align: center;
+  }
+
+  /* Estilos básicos para el layout */
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+  }
+  
+  .navbar-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar-links li {
+    margin: 0;
+  }
+  
+  .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-links a:hover {
+    color: #ddd;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .body-content h2 {
+    margin-top: 0;
+  }
+  
+  .footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
