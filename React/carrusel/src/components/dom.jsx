@@ -1,6 +1,7 @@
 import React from 'react';
 import "../App.css";
 import Carousel from "./carrusel.jsx";
+import HolaMundo from "./holamundo.jsx";
 
 
 
@@ -98,6 +99,8 @@ const Dom =() => {
             <Body />
             <br />
             <Carousel slides={slides} />
+            <br />
+            <HolaMundo />
           </main>
           <Footer />
         </div>
