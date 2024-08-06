@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState }  from 'react';
+import '../App.css'
 
 const Formulario = () => {
   const [formData, setFormData] = useState({
@@ -32,9 +33,9 @@ const Formulario = () => {
       (parseFloat(nota3) * 0.30);
 
     if (notaFinal >= 3.0) {
-      setResultado('Gano la materia, aprobó el semestre');
+      setResultado('Gano la materia, aprobó el semestre y su nota final es: ' + notaFinal);
     } else {
-      setResultado('No aprobó la materia, debe repetir el semestre');
+      setResultado('No aprobó la materia, debe repetir el semestre, debido a que su nota final es: ' + notaFinal);
     }
   };
 
@@ -47,12 +48,16 @@ const Formulario = () => {
     const number = parseFloat(nota);
     return number >= 0 && number <= 5;
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='contenedor'>
+        <h1>Ingrese sus Datos</h1>
       <div>
-        <label>Nombre:</label>
         <input
+          placeholder='Nombre'
+          className='inputs'
           type="text"
           name="nombre"
           value={formData.nombre}
@@ -61,8 +66,9 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Apellidos:</label>
         <input
+          placeholder='Apellidos'
+          className='inputs'
           type="text"
           name="apellidos"
           value={formData.apellidos}
@@ -71,8 +77,10 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Teléfono:</label>
+
         <input
+          placeholder='Telefono'
+          className='inputs'
           type="text"
           name="telefono"
           value={formData.telefono}
@@ -81,8 +89,9 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Identificación:</label>
         <input
+          placeholder='No de Documento'
+          className='inputs'
           type="text"
           name="identificacion"
           value={formData.identificacion}
@@ -91,8 +100,9 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Email:</label>
         <input
+          placeholder='Email'
+          className='inputs'
           type="email"
           name="email"
           value={formData.email}
@@ -106,14 +116,14 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Nivel de carrera:</label>
         <select
+          className='inputs'
           name="nivelCarrera"
           value={formData.nivelCarrera}
           onChange={handleChange}
           required
         >
-          <option value="">Seleccione</option>
+          <option value="">Nivel de Carrera</option>
           <option value="tecnico">Técnico</option>
           <option value="tecnologo">Tecnólogo</option>
           <option value="pregrado">Pregrado</option>
@@ -121,8 +131,9 @@ const Formulario = () => {
         </select>
       </div>
       <div>
-        <label>Programa de formación:</label>
         <input
+          placeholder='Nivel de Formacion'
+          className='inputs'
           type="text"
           name="programa"
           value={formData.programa}
@@ -131,8 +142,9 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Materia:</label>
         <input
+          placeholder='Materia'
+          className='inputs'
           type="text"
           name="materia"
           value={formData.materia}
@@ -141,8 +153,9 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Nota 1 (35%):</label>
         <input
+          placeholder='Nota 1 (35%)'
+          className='inputs'
           type="number"
           name="nota1"
           value={formData.nota1}
@@ -156,8 +169,9 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Nota 2 (35%):</label>
         <input
+          placeholder='Nota 2 (35%)'
+          className='inputs'
           type="number"
           name="nota2"
           value={formData.nota2}
@@ -171,8 +185,9 @@ const Formulario = () => {
         />
       </div>
       <div>
-        <label>Nota 3 (30%):</label>
         <input
+          placeholder='Nota 3 (30%)'
+          className='inputs'
           type="number"
           name="nota3"
           value={formData.nota3}
@@ -185,8 +200,9 @@ const Formulario = () => {
           }}
         />
       </div>
-      <button type="submit">Enviar</button>
+      <button className='boton' type="submit">Enviar</button>
       {resultado && <div>{resultado}</div>}
+      </div>
     </form>
   );
 };
