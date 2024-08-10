@@ -19,7 +19,7 @@ body{
 }
 
 .carousel-slide {
-  min-width: 100vh;
+  min-width: 80vh;
   min-height: 45px;
   position: relative;
   box-sizing: border-box;
@@ -32,9 +32,10 @@ body{
 }
 
 .carousel-image {
-  width: 700px;
+  width: 500px;
   height: 400px;
   display: block;
+  border-radius: 20px;
 }
 
 .carousel-caption {
@@ -67,11 +68,13 @@ body{
 }
 .carousel-contenedor {
   position: relative;
-  width: 100%; /* Ajusta el ancho del contenedor según sea necesario */
+  width: 100%; 
   overflow: hidden;
   justify-content: center;
 }
+
 /* Navbar */
+
 .navbar {
   background-color: #BA9D79;
   padding: 20px;
@@ -90,9 +93,191 @@ body{
 .navbar li {
   margin: 0 15px;
   color: #fff;
-  font-size: 50px;
+  font-size: 30px;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #BA9D79;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-container {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-logo {
+  max-width: 120px; /* Ajusta el tamaño del logo */
+}
+
+.social-icons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  font-size: 35px;
+  color: #5E5E5E;
+}
+
+.social-icons i {
+  width: 60px; /* Ajusta el tamaño de los íconos de redes sociales */
+}
+
+
+/* Tarjetas */
+
+.tarjeta {
+  width: 100%;
+  height: 450px;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  margin: 40px;
+  border-radius: 10px;
+}
+.tarjeta img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.tarjeta_texto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(37, 37, 39, 0.8);
+  padding: 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  height: 100%;
+  color: #fff;
+  font-family: 'SignikaNegative-Regular';
+}
+
+.tarjeta_texto h2 {
+  margin-top: 40px;
+}
+
+.tarjeta_texto p {
+  text-align: justify;
+  margin: 30px;
+}
+
+.tarjeta_texto h4 {
+  font-size: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  margin: 30px;
+}
+
+
+.tarjeta:hover {
+  transform: scale(1.1);
+  border-radius: 25px;
+}
+
+.tarjeta:hover .tarjeta_texto {
+  transform: translateY(0);
+}
+
+.contenedor-tarjetas{
+  width: 80%;
+  height: 100%;
+  display: grid;
+  gap:30px;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  text-align: center;
+  margin: auto;
+  
+}
+
+/* Formulario Contacto */
+
+.contenedor-form{
+  width: 30%;
+  background:#BA9D79;
+  padding: 25px;
+  margin: auto;
+  margin-top: 10px ;
+  color: white;
+  box-shadow: 20px 25px 30px rgba(37, 37, 39, 0.75);
+  text-align: center;
+  border-radius: 50px;
+}
+
+.inputs{
+  width: 70%;
+  height: 35px;
+  background-color: #5E5E5E;
+  color: #fff; 
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.inputs::placeholder{
+  color: #fff;
+}
+
+.boton{
+  width: 30%;
+  height: 50px;
+  background: #7100b2;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 15px;
+  margin-top: 5px ;
+}
+
+/* Clientes */
+
+.contenedor {
+  width: 30%;
+  background:#BA9D79;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.comentario-item {
+  width: 50%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #5E5E5E;
+  margin: auto;
+}
+
+.comentario-item p {
+  margin: 0 0 10px 0;
+}
+
+.comentario-item p strong {
+  color: #333;
 }

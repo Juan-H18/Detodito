@@ -3,6 +3,10 @@ import '../App.css';
 import { Routes, Route } from "react-router-dom";
 import Inicio from "./inicio.jsx";
 import SobreNosotros from "./sobrenosotros.jsx";
+import Clientes from "./clientes.jsx";
+import Contacto from "./contacto.jsx"; 
+
+
 
 
 const Layout = () => {
@@ -16,6 +20,7 @@ const Layout = () => {
                     <li><Link to="/contacto">Contacto</Link></li>
                 </ul>
             </nav>
+            <br /> <br /><br />
             <Outlet />
         </>
 
@@ -27,8 +32,10 @@ const Navbar = () => {
         <div className="App">
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<Inicio />} /> {/* Página de inicio */}
+                    <Route index element={<Inicio />} />
                     <Route path="sobrenosotros" element={<SobreNosotros />} />
+                    <Route path="clientes" element={<Clientes />} />
+                    <Route path="contacto" element={<Contacto />} />
                 </Route>
             </Routes>
         </div>
