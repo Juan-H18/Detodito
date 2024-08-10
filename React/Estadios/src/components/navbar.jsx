@@ -7,15 +7,18 @@ import SobreNosotros from "./sobrenosotros.jsx";
 
 const Layout = () => {
     return (
-        <div>
+        <>
             <nav className="navbar">
                 <ul>
                     <li><Link to="/">Inicio</Link></li>
                     <li><Link to="/sobrenosotros">Sobre Nosotros</Link></li>
+                    <li><Link to="/clientes">Clientes</Link></li>
+                    <li><Link to="/contacto">Contacto</Link></li>
                 </ul>
             </nav>
             <Outlet />
-        </div>
+        </>
+
     );
 }
 

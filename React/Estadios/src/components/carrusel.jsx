@@ -65,6 +65,7 @@ const Carousel = () => {
     };
 
     return (
+        <div className="carousel-contenedor">
         <div className="carousel">
             <button onClick={prevSlide} className="carousel-button left">
                 &#10094;
@@ -86,6 +87,7 @@ const Carousel = () => {
             <button onClick={nextSlide} className="carousel-button right">
                 &#10095;
             </button>
+        </div>
         </div>
     );
 };
