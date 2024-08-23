@@ -15,7 +15,28 @@ import Loading from './components/loading.jsx';
 import Registro from './components/registro.jsx';
 import Registro2 from './components/registro2.jsx';
 
+//Navbar
+import { Container } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+
+import Navbar from "./components/navbar.jsx";
+import RouterRegister from "./components/routerregister.jsx";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import InboxIcon from "@mui/icons-material/Inbox";
+import DraftsIcon from "@mui/icons-material/Drafts";
+
 function App() {
+  //Navbar
+  const navegationLinks = [
+    {
+      title: "Register",
+      path: "/register",
+      icon: <MenuIcon />,
+    },
+  ];
+
+
   return(
     <>
       <Titulo /> 
@@ -29,10 +50,24 @@ function App() {
       <Alertas2 />  
       <BotonAlerta />
 
+    {/* SnackBars */}
+
       <Snackbars />
       <Loading />
       <Registro />
       <Registro2 />
+
+    {/* Navbar */}
+
+    <Navbar navegationLinks={navegationLinks} />
+      <Container sx={{ mt: 5 }}>
+        <Routes>
+          <Route
+            path="/register"
+            element={<RouterRegister />}
+          />
+        </Routes>
+      </Container>
     </>
   )
 }
