@@ -7,8 +7,8 @@ export default function NavListDrawer({ navegationLinks, component, setOpen }) {
             <nav>
                 <List>
                     {navegationLinks.map((item) => (
-                        <ListItem
-                            disablePadding
+                        <ListItem 
+                            disablePadding 
                             key={item.title}
                         >
                             <ListItemButton
