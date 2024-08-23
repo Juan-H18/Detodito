@@ -1,33 +1,38 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Register from './components/boton1.jsx';
+import Titulo from './components/titulo.jsx';
+import Texto from './components/texto.jsx';
+import Boton2 from './components/boton2.jsx';
+import Parrafos from './components/parrafos.jsx';
+import Producto from './components/producto.jsx';
+import MyCard from './components/cards.jsx';
+import Alertas1 from './components/alertas1.jsx';
+import Alertas2 from './components/alertas2.jsx';
+import BotonAlerta from './components/botonalerta.jsx';
+import Snackbars from './components/snackbar.jsx';
+import Loading from './components/loading.jsx';
+import Registro from './components/registro.jsx';
+import Registro2 from './components/registro2.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  return(
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Titulo /> 
+      <Register />
+      <Texto />
+      <Boton2 />
+      <Parrafos />  
+      <Producto />
+      <MyCard />
+      <Alertas1 />
+      <Alertas2 />  
+      <BotonAlerta />
+
+      <Snackbars />
+      <Loading />
+      <Registro />
+      <Registro2 />
     </>
   )
 }
