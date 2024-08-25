@@ -12,7 +12,7 @@ export default function Navbar({ navegationLinks }) {
 
     return (
         <>
-            <AppBar position="static">
+            <AppBar position="fixed" sx={{ zIndex: 100 }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -25,11 +25,21 @@ export default function Navbar({ navegationLinks }) {
                     <Typography
                         variant="h6"
                         sx={{ flexGrow: 1 }}
-                    > 
-                        News
+                    >
+                        <img
+                            src="../images/logo.png"
+                            alt="Logo"
+                            style={{
+                                height: '3em',
+                                verticalAlign: 'middle',
+                                marginLeft: '0.5em'
+                            }}
+                        />
+                        Perro_Come_Perro_
                     </Typography>
 
                     <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                        <Box sx={{background: 'black', borderRadius: '10px' }}>
                         {navegationLinks.map((item) => (
                             <Button
                                 color="inherit"
@@ -37,9 +47,10 @@ export default function Navbar({ navegationLinks }) {
                                 component={NavLink}
                                 to={item.path}
                             >
-                            {item.title}
+                                {item.title}
                             </Button>
                         ))}
+                        </Box>
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -53,7 +64,7 @@ export default function Navbar({ navegationLinks }) {
                     navegationLinks={navegationLinks}
                     component={NavLink}
                     setOpen={setOpen}
-            />
+                />
             </Drawer>
         </>
     );
