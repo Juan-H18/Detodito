@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-wav-player": "^1.0.0"
+  }
+}
