@@ -16,7 +16,7 @@ app.use(express.json());
 
 // routes
 app.get("/", (req, res) => {
-  res.send("A roldan le gusta el pito");
+  res.send("Conexion Realizada");
 });
 
 // mongodb connection
