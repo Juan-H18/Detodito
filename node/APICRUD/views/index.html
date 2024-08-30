@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CRUD App</h1>
+    <button onclick="showAddForm()">Add New Item</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="itemsTable">
+            <!-- Items will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Hidden form for adding/updating items -->
+    <div id="itemForm" style="display: none;">
+        <h2 id="formTitle">Add New Item</h2>
+        <form id="dataForm">
+            <input type="hidden" id="itemId">
+            <label for="itemName">Name:</label>
+            <input type="text" id="itemName" required>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="hideForm()">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchItems();
+
+            document.getElementById('dataForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const id = document.getElementById('itemId').value;
+                const name = document.getElementById('itemName').value;
+
+                if (id) {
+                    updateItem(id, name);
+                } else {
+                    addItem(name);
+                }
+            });
+        });
+
+        function fetchItems() {
+            fetch('/api/items')
+                .then(response => response.json())
+                .then(data => {
+                    const table = document.getElementById('itemsTable');
+                    table.innerHTML = '';
+                    data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item._id}</td>
+                            <td>${item.name}</td>
+                            <td>
+                                <button onclick="showEditForm('${item._id}', '${item.name}')">Edit</button>
+                                <button onclick="deleteItem('${item._id}')">Delete</button>
+                            </td>
+                        `;
+                        table.appendChild(row);
+                    });
+                });
+        }
+
+        function addItem(name) {
+            fetch('/api/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: name }),
+            })
+            .then(response => response.json())
+            .then(() => {
+                fetchItems();
+                hideForm();
+            });
+        }
+
+        function updateItem(id, name) {
+            fetch(`/api/items/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: name }),
+            })
+            .then(response => response.json())
+            .then(() => {
+                fetchItems();
+                hideForm();
+            });
+        }
+
+        function deleteItem(id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                fetch(`/api/items/${id}`, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                    if (response.ok) {
+                        fetchItems();  // Refresca la tabla después de eliminar
+                    } else {
+                        console.error('Failed to delete item');
+                    }
+                })
+                .catch(err => console.error('Error:', err));
+            }
+        }
+        
+
+        function showAddForm() {
+            document.getElementById('formTitle').innerText = 'Add New Item';
+            document.getElementById('itemId').value = '';
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemForm').style.display = 'block';
+        }
+
+        function showEditForm(id, name) {
+            document.getElementById('formTitle').innerText = 'Edit Item';
+            document.getElementById('itemId').value = id;
+            document.getElementById('itemName').value = name;
+            document.getElementById('itemForm').style.display = 'block';
+        }
+
+        function hideForm() {
+            document.getElementById('itemForm').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
